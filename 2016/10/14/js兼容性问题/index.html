@@ -4,14 +4,39 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: html js css | 王天理的博客</title>
+  <title>js兼容性问题 | 王天理的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王天理的博客">
-<meta property="og:url" content="http://yoursite.com/tags/html-js-css/index.html">
+  <meta name="description" content="JS的兼容性问题（总结）:1.注册事件的兼容处理
+ if(obj.addEventListener){
+    obj.addEventListener(type,handler,false);
+  }else{
+    obj.attachEvent(&amp;apos;on&amp;apos;+type,handler);
+  }
+  2.解除绑定的事件兼容处理
+  if(obj.removeEventLis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js兼容性问题">
+<meta property="og:url" content="http://yoursite.com/2016/10/14/js兼容性问题/index.html">
 <meta property="og:site_name" content="王天理的博客">
+<meta property="og:description" content="JS的兼容性问题（总结）:1.注册事件的兼容处理
+ if(obj.addEventListener){
+    obj.addEventListener(type,handler,false);
+  }else{
+    obj.attachEvent(&amp;apos;on&amp;apos;+type,handler);
+  }
+  2.解除绑定的事件兼容处理
+  if(obj.removeEventLis">
+<meta property="og:updated_time" content="2016-10-17T02:20:51.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王天理的博客">
+<meta name="twitter:title" content="js兼容性问题">
+<meta name="twitter:description" content="JS的兼容性问题（总结）:1.注册事件的兼容处理
+ if(obj.addEventListener){
+    obj.addEventListener(type,handler,false);
+  }else{
+    obj.attachEvent(&amp;apos;on&amp;apos;+type,handler);
+  }
+  2.解除绑定的事件兼容处理
+  if(obj.removeEventLis">
   
     <link rel="alternative" href="/atom.xml" title="王天理的博客" type="application/atom+xml">
   
@@ -130,54 +155,116 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-js兼容性问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/02/21/text/" class="archive-article-date">
-  	<time datetime="2014-02-21T15:34:59.000Z" itemprop="datePublished"><i class="icon-clock"></i>2014-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/02/21/text/">面试</a>
+    <h1 class="article-title" itemprop="name">
+      js兼容性问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JS的兼容性问题（总结）"><a href="#JS的兼容性问题（总结）" class="headerlink" title="JS的兼容性问题（总结）:"></a>JS的兼容性问题（总结）:</h2><pre><code>1.注册事件的兼容处理
+ if(obj.addEventListener){
+    obj.addEventListener(type,handler,false);
+  }else{
+    obj.attachEvent(&apos;on&apos;+type,handler);
+  }
+  2.解除绑定的事件兼容处理
+  if(obj.removeEventListener){
+    obj.removeEventListener(type,handler);
+  }else{
+    obj.detachEvent(&apos;on&apos;+type,handler);
+  }
+3.阻止冒泡的兼容处理
+  if(event.stopPropagation)
+   {
+    //标准浏览器
+     event.stopPropagation();
+   }else{
+    //ie6,7,8
+     event.cancleBubble = true;
+   }
+4.阻止默认行为的兼容处理
+  if(e.preventDefault){
+    //标准浏览器
+    e.preventDefault();
+   }else{
+    //IE678
+    e.returnValue = false;
+   }
+5.事件对象的兼容处理
+  e = e || window.event;
+6.获取触发事件的对象
+  var tar = e.target || e.srcElement;
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/14/js兼容性问题/" class="archive-article-date">
+  	<time datetime="2016-10-14T14:27:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
+</a>
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html-js-css/">html js css</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/14/angular入门01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">angular初识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
 
 
       </div>
@@ -200,9 +287,9 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

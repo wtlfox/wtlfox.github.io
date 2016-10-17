@@ -132,7 +132,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-text" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-js兼容性问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -142,7 +142,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/14/text/">面试</a>
+      <a class="article-title" href="/2016/10/14/js兼容性问题/">js兼容性问题</a>
     </h1>
   
 
@@ -150,18 +150,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="面试宝典"><a href="#面试宝典" class="headerlink" title="面试宝典"></a>面试宝典</h1>
+        <h2 id="JS的兼容性问题（总结）"><a href="#JS的兼容性问题（总结）" class="headerlink" title="JS的兼容性问题（总结）:"></a>JS的兼容性问题（总结）:</h2><pre><code>1.注册事件的兼容处理
+ if(obj.addEventListener){
+    obj.addEventListener(type,handler,false);
+  }else{
+    obj.attachEvent(&apos;on&apos;+type,handler);
+  }
+  2.解除绑定的事件兼容处理
+  if(obj.removeEventListener){
+    obj.removeEventListener(type,handler);
+  }else{
+    obj.detachEvent(&apos;on&apos;+type,handler);
+  }
+3.阻止冒泡的兼容处理
+  if(event.stopPropagation)
+   {
+    //标准浏览器
+     event.stopPropagation();
+   }else{
+    //ie6,7,8
+     event.cancleBubble = true;
+   }
+4.阻止默认行为的兼容处理
+  if(e.preventDefault){
+    //标准浏览器
+    e.preventDefault();
+   }else{
+    //IE678
+    e.returnValue = false;
+   }
+5.事件对象的兼容处理
+  e = e || window.event;
+6.获取触发事件的对象
+  var tar = e.target || e.srcElement;
+</code></pre>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2015/10/14/text/" class="archive-article-date">
-  	<time datetime="2015-10-14T15:34:59.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-10-14</time>
+      <a href="/2016/10/14/js兼容性问题/" class="archive-article-date">
+  	<time datetime="2016-10-14T14:27:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-14</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html-js-css/">html js css</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 	</div>
 
       
@@ -181,6 +214,1011 @@
 
 
   
+    <article id="post-angular入门01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/14/angular入门01/">angular初识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Angular的核心特性"><a href="#Angular的核心特性" class="headerlink" title="Angular的核心特性"></a>Angular的核心特性</h2><ul>
+<li>MVC</li>
+<li>模块化</li>
+<li>自动化双向数据绑定</li>
+<li>指令系统</li>
+</ul>
+<h2 id="下载angular-两种方式任选其一"><a href="#下载angular-两种方式任选其一" class="headerlink" title="下载angular(两种方式任选其一)"></a>下载angular(两种方式任选其一)</h2><ul>
+<li>bower install angular –save</li>
+<li>npm install angular –save</li>
+</ul>
+<h2 id="重要的指令"><a href="#重要的指令" class="headerlink" title="重要的指令"></a>重要的指令</h2><ul>
+<li><p>ng-app</p>
+<ul>
+<li>所有需要ng管理的代码必须被包裹在一个有ng-app指令的元素中</li>
+<li>ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个指令进行分析和操作）</li>
+<li>当angular执行ng-app的代码时会开辟一块空间，这块空间用来存储页面上可能会用到的数据模型</li>
+</ul>
+</li>
+<li><p>ng-model是双向数据绑定的指令</p>
+</li>
+</ul>
+<h2 id="Angular特点"><a href="#Angular特点" class="headerlink" title="Angular特点"></a>Angular特点</h2><ul>
+<li>最大程度的减少页面的DOM操作</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>&lt;body&gt;
+      &lt;div ng-app&gt;
+    &lt;h2&gt;使用NG实现双向数据绑定&lt;/h2&gt;
+    &lt;input type=&quot;text&quot; ng-model=&quot;user.name&quot; placeholder=&quot;请输入用户名&quot;&gt;
+    &lt;p&gt;hello &lt;strong&gt;{{user.name}}&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+ &lt;script src=&quot;../node_modules/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/14/angular入门01/" class="archive-article-date">
+  	<time datetime="2016-04-14T14:20:16.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-面向对象02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/07/面向对象02/">面向对象之原型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><ul>
+<li>什么是原型链？<ul>
+<li>原型链是由对象组成的有限对象链，用于实现继承和共享属性。</li>
+</ul>
+</li>
+<li>原型链的作用？<ul>
+<li>实现数据共存、继承</li>
+</ul>
+</li>
+<li>原型链的本质？<ul>
+<li>实例对象与原型形成的链，链之间的联系通过<strong>proto</strong>。</li>
+</ul>
+</li>
+<li>没有办法通过实例修改原型上的内容。</li>
+<li>当要找的某个属性找到了，就不会再向上找了，如果没找到就会按着原型链继续往上找直到找到。</li>
+</ul>
+<p><strong>继承的思想：别人给了我，我的还是我的</strong></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>函数扮演的角色：(函数扮演什么角色取决于函数的使用方式)</li>
+</ul>
+<pre><code>- 普通函数
+- 构造函数
+- 函数也是对象（是函数也是对象 jquery里内部体现了这两种角色
+ $(&apos;div&apos;) $是函数    $.ajax(); $是对象）
+</code></pre><ul>
+<li><p>其中Math不是函数是对象</p>
+<ul>
+<li><code>console.log( typeof Math);      object</code></li>
+<li><code>console.log(typeof Array);       function</code></li>
+<li><code>console.log(Math instanceof object)   true  Math是Object的实例</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>函数的种类</p>
+<ul>
+<li>系统函数（内置API）</li>
+<li>自定义函数（主讲）</li>
+</ul>
+</li>
+<li><p>定义方式：</p>
+<ul>
+<li>函数声明<br><code>function fn(){}</code></li>
+<li>函数表达式<br><code>var fn = function(){}</code></li>
+<li>Function (很少有 在框架内部会用)<br><code>var fn = new Function(参数，函数体) 最后一个参数是函数体，前后的参数都是对应的形参</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>函数声明和函数表达式在预解析时有差别前者调用可以在声明前后者不可以，在功能上无差别</strong></p>
+<ul>
+<li><p>浏览器的解析器在运行JS代码的时候，分为两个阶段：</p>
+<ul>
+<li>预解析 函数声明、变量声明、参数声明会提升</li>
+<li>执行</li>
+</ul>
+</li>
+<li><p>JS中函数可以先使用后定义吗？答：可以，因为预解析会将函数的声明提前</p>
+</li>
+<li><p>函数的调用</p>
+<ul>
+<li>普通函数的调用</li>
+<li>构造函数的调用</li>
+<li>对象方法的调用<ul>
+<li>call/apply的调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>函数的调用方式觉得了this的指向（5种）</p>
+<p>  1)普通函数里的this<br>  2)构造函数<br>  3)原型方法中的this和构造函数中的this指向相同，都是实例对象<br>  4)对象的方法<br>  5)定时函数<br>  如果作为普通函数使用，不推荐在函数内使用this,在严格模式下，普通函数中的this就是window</p>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/07/面向对象02/" class="archive-article-date">
+  	<time datetime="2016-04-07T13:26:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">prototype</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-面向对象01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/06/面向对象01/">初识面向对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是面向对象？"><a href="#什么是面向对象？" class="headerlink" title="什么是面向对象？"></a>什么是面向对象？</h1><ul>
+<li><p>面向对象是一种编程模式</p>
+<ul>
+<li>好处：1.可维护性高 2.重用性高</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>构造函数、实例对象、原型三者的关系？</p>
+<ul>
+<li>所有的构造函数都有一个原型属性<code>prototype</code>,属性值也是一个对象（<code>new Object()</code>）原型对象</li>
+<li>实例对象都有一个默认的属性<code>__proto__</code>，该属性不是标准（每个浏览器的这个属性的名<br>称不一样）在实际开发中不可以使用这个属性，该属性是浏览器自己使用，该属性的指向和原<br>型prototype指向相同。<ul>
+<li>3.原型对象（<code>prototype</code>）里面都有一个<code>constructor</code>属性，该属性指向原型所属的构造函数。</li>
+</ul>
+</li>
+</ul>
+<hr>
+</li>
+<li><p>原型</p>
+<ul>
+<li>实现数据共享</li>
+<li>构造函数中原型属性<code>prototype</code>指向的区域被所有的实例共享</li>
+<li><code>prototype</code>是从构造函数的角度来说的。</li>
+<li><code>__proto__</code>是从实例对象的角度来说的</li>
+</ul>
+<hr>
+</li>
+<li>this<ul>
+<li>构造函数中的this</li>
+<li>原型方法中的this</li>
+<li>事件函数中的this</li>
+</ul>
+<hr>
+</li>
+<li><p>new 实际上背后做了什么？</p>
+<ul>
+<li>分配内存，用来存储具体的数据。</li>
+<li>分配好之后用this指向这块区域（this存储内存地址）实际上this就是一个内存地址</li>
+<li>接下来会通过this指向的这块区域添加属性，并且存放数据。</li>
+<li>返回this(内存地址)</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><pre><code>一般情况下，方法放在原型上，属性放到构造函数中，达成的效果是：所有实例共享方法，但数据各自有一份。
+</code></pre>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/04/06/面向对象01/" class="archive-article-date">
+  	<time datetime="2016-04-06T12:56:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-04-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Css3_动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/20/Css3_动画/">动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2D转换transform"><a href="#2D转换transform" class="headerlink" title="2D转换transform"></a>2D转换transform</h2><ul>
+<li>位移 translate()<ul>
+<li><code>transform:translateX(600px)</code>向右平移600px</li>
+<li><code>transform:translateY(-400px)</code>向上移动400px</li>
+<li><code>transform:translate(200px -200px)</code>向右移动200px 向上移动200px</li>
+</ul>
+</li>
+<li>旋转 rotate()<ul>
+<li><code>transform:rotate(45deg)</code>顺时针旋转45度</li>
+<li><code>transform:rotateX(45deg)</code>顺时针绕着x轴旋转</li>
+<li><code>transform:rotateY(45deg)</code>顺时针绕着y轴旋转 </li>
+<li>规律：当值越来越大的时候，绕着顺时针旋转，当值越来越小的时候，逆时针旋转</li>
+</ul>
+</li>
+<li>缩放 scale()<ul>
+<li><code>transform:scale(2)</code>放大2倍</li>
+<li><code>transform:scale(0.1)</code>缩小到0.1被</li>
+<li>规律：值大于1时放大，下于1时缩小</li>
+</ul>
+</li>
+<li>倾斜 skew()<ul>
+<li><code>transform:skewX(45deg)</code>角度为正，向左倾斜，角度为负，向右倾斜</li>
+<li><code>transform:skewY(-45deg)</code>角度为正，向下倾斜，角度为负，向上倾斜</li>
+</ul>
+</li>
+<li>transform-origin转换原点（指转换元素以哪个点进行转化）<h2 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h2></li>
+<li>3d位移 translate<ul>
+<li>translateX 向右为正，向做为负</li>
+<li>translateY 正值向下，负值向上</li>
+<li>translateZ 正值靠近我们，负值远离我们<h2 id="透视perspective"><a href="#透视perspective" class="headerlink" title="透视perspective"></a>透视perspective</h2></li>
+</ul>
+</li>
+<li>脑显示屏是一个2D平面，图像之所以具有立体感（3D效果），其实只是一种视觉呈现 ，通过透视可以实现此目的。</li>
+<li>透视可以将一个2D平面，在转换的过程当中，呈现3D效果。（没有perspective，便“没有”Z轴） </li>
+<li>透视原点 perspective-origin<ul>
+<li>Perspective-originj:x y</li>
+<li>X轴代表眼睛在水平动</li>
+<li>Y轴代表眼睛在竖直动</li>
+</ul>
+</li>
+<li>Perspective可以写在父级，也可以写在自己<ul>
+<li>父级的时候 是一个属性 perspective <code>perspective:1000px;</code></li>
+<li>自己的时候是一个属性值 perspective()给transform</li>
+</ul>
+</li>
+<li>转换方式 transform-style<ul>
+<li><code>transform-style:preserve-3d;</code>必须写在父级元素<h2 id="过渡-transition"><a href="#过渡-transition" class="headerlink" title="过渡 transition"></a>过渡 transition</h2></li>
+</ul>
+</li>
+<li>过渡属性 transition-property</li>
+<li>过渡持续时间 transition-duration</li>
+<li>过渡延迟 transition-delay</li>
+<li>过渡时间函数 transition-timing-function<h2 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画 animation"></a>动画 animation</h2>-定义动画<ul>
+<li>@keyframes 动画名｛from{} to{}｝</li>
+<li>使用动画<ul>
+<li>动画名称 animation-name</li>
+<li>动画持续时间 animation-duration</li>
+<li>动画延迟 animation-delay</li>
+<li>动画时间函数 animation-timing-function </li>
+<li>动画循环次数 animation-interation-count （infinite无限次循环）（steps(步数)分几步完成）</li>
+<li>动画方向  animation-direction<ul>
+<li>normal 正常播放</li>
+<li>alternate 动画应该轮流反向播放</li>
+</ul>
+</li>
+<li>动画播放状态  animation-play-state<ul>
+<li>paused 动画停止</li>
+<li>running 动画播放</li>
+</ul>
+</li>
+<li>动画执行后的状态  animation-fill-model<ul>
+<li>forwards 保持最后完成的状态</li>
+<li>backwards 回到初识状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Animation:动画名称 动画时间 动画延时 其他任选</li>
+</ul>
+</li>
+</ul>
+<p><strong><a href="http://caniuse.com/" target="_blank" rel="external">http://caniuse.com/</a> 查看哪些css3属性需要加前缀</strong>  </p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/20/Css3_动画/" class="archive-article-date">
+  	<time datetime="2015-12-20T11:21:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-伸缩布局和盒子尺寸md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/12/伸缩布局和盒子尺寸md/">伸缩布局及盒子尺寸</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="盒子尺寸box-sizing"><a href="#盒子尺寸box-sizing" class="headerlink" title="盒子尺寸box-sizing"></a>盒子尺寸box-sizing</h2><ul>
+<li>box-sizing:content-box(默认值)<ul>
+<li>盒子总宽度=width+padding+border</li>
+</ul>
+</li>
+<li>box-sizing:border-box<ul>
+<li>让盒子的总宽度等于设置的width<h2 id="Flex布局（伸缩布局）"><a href="#Flex布局（伸缩布局）" class="headerlink" title="Flex布局（伸缩布局）"></a>Flex布局（伸缩布局）</h2></li>
+</ul>
+</li>
+<li>伸缩容器display:flex<ul>
+<li>伸缩容器属性<ul>
+<li>flex-direction 调整主轴的方向（默认是水平方向）四个值可选：<ul>
+<li>row (水平方向左到右)</li>
+<li>column (竖直方向上到下)</li>
+<li>row-reverse (水平反向)</li>
+<li>column-reverse (竖直反向)</li>
+</ul>
+</li>
+<li>flex-wrap 调整伸缩项目是否换行 两个值可选 ：nowrap(不换行默认)，wrap(换行)</li>
+<li>align-items 调整伸缩项目在侧轴的对齐方式 四个值可选：<ul>
+<li>flex-start 侧轴起始点对齐</li>
+<li>flex-end   侧轴终点对齐</li>
+<li>center     侧轴居中对齐</li>
+<li>stretch    伸缩对齐（默认）</li>
+</ul>
+</li>
+<li>align-content 调整换行后伸缩项目的对齐方式 六个值可选：<ul>
+<li>flex-start</li>
+<li>flex-end</li>
+<li>center</li>
+<li>space-around 四周环绕</li>
+<li>space-between 两端对齐</li>
+<li>stretch 拉伸 </li>
+</ul>
+</li>
+<li>justify-content 调整伸缩项目在主轴方向上的对齐方式，五个值可选：<ul>
+<li>flex-start 主轴起始点对齐</li>
+<li>flex-end 主轴终点对齐</li>
+<li>center 居中对齐</li>
+<li>space-around 四周环绕</li>
+<li>space-between 两端对齐 </li>
+</ul>
+</li>
+<li>flex-flow 是flex-direction和flex-wrap的简写形式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>伸缩项目<ul>
+<li>伸缩项目属性<ul>
+<li>flex 代表伸缩项目在伸缩容器中所占的剩余位置的比例</li>
+<li>align-self 设置自己的对齐方式 会覆盖父元素设置的侧轴对齐方式</li>
+<li>order  设置伸缩项目的排序方式 数字越大越靠后，越小越靠前</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/12/伸缩布局和盒子尺寸md/" class="archive-article-date">
+  	<time datetime="2015-12-12T12:30:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-12</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Css3_阴影及颜色表示发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/10/Css3_阴影及颜色表示发/">阴影属性及颜色表示法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ul>
+<li>文本阴影<ul>
+<li>text-shadow:水平偏移 竖直偏移 模糊程度 阴影的颜色</li>
+<li>水平偏移：值越大，越往右，值越小，越往左</li>
+<li>竖直偏移：值越大，越往下，值越小，越往上</li>
+<li>模糊：模糊不能为负值，值越大，越模糊</li>
+<li>阴影颜色：为你想要的颜色</li>
+<li><code>text-shadow:10px 10px 0px #00ff000</code></li>
+</ul>
+</li>
+<li>盒子阴影<ul>
+<li>box-shadow:水平偏移 竖直偏移 模糊程度 模糊的扩展距离 阴影颜色 内嵌</li>
+<li>模糊的扩展距离：从元素边开始到开始模糊的地方，值越大扩展的距离越大</li>
+<li>内嵌：让阴影变成内嵌的阴影，称之内阴影，不写默认是外阴影</li>
+<li><code>box-shadow:10px 10px 1px 10px #ccc inset</code> <h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2></li>
+</ul>
+</li>
+<li>边框圆角<ul>
+<li>border-radius</li>
+<li>值有四种情况<ul>
+<li>一个值，代表四个角的圆角值都一样<code>border-radius:10px</code></li>
+<li>两个值，代表对角线的两个角的值（左上/右下 右上/左下）<code>border-radius:10px 20px</code></li>
+<li>三个值，代表左上，右下，右上/左下 <code>border-radius:10px 20px 30px</code></li>
+<li>四个值，代表顺时针各个角<code>border-radius:10px 20px 30px 40px</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="颜色表示方式"><a href="#颜色表示方式" class="headerlink" title="颜色表示方式"></a>颜色表示方式</h2><ul>
+<li>rgba()<ul>
+<li>r:red</li>
+<li>g:green</li>
+<li>b:blue</li>
+<li>a:alpha 不透明度（0-1）</li>
+<li><code>background-color:rgba(125,125,125,0.5)</code>     </li>
+</ul>
+</li>
+<li>hsla()<ul>
+<li>h:色调</li>
+<li>s:饱和度</li>
+<li>l:亮度或明度</li>
+<li>a:alpha不透明度(0-1) </li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/10/Css3_阴影及颜色表示发/" class="archive-article-date">
+  	<time datetime="2015-12-10T02:25:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Css02_background" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/03/Css02_background/">Background</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景尺寸background-size"><a href="#背景尺寸background-size" class="headerlink" title="背景尺寸background-size"></a>背景尺寸background-size</h2><ul>
+<li>background-size可以改变引用的背景图片的尺寸，值可以为具体的数字，%,auto,cover。</li>
+<li>当为具体数字时<ul>
+<li><code>background-size:900px 500px;(宽，高)</code></li>
+</ul>
+</li>
+<li>当为%，auto时，可实现背景图片的尺寸保持宽高比并且随着元素的宽度或高度变化而变化<ul>
+<li><code>background-size:100% auto</code></li>
+<li><code>background-size:auto 100%</code></li>
+<li><code>background-size:auto</code>背景图片保持原有图片的大小</li>
+</ul>
+</li>
+<li>当为cover时，无论元素多大，图片都能完全覆盖住整个div<br>  -<code>background-size:cover</code></li>
+<li>当为contain时，实现背景图片完全显示在元素中，无论是否覆盖真个元素<ul>
+<li><code>background-size:contain</code><h2 id="背景原点background-origin"><a href="#背景原点background-origin" class="headerlink" title="背景原点background-origin"></a>背景原点background-origin</h2></li>
+</ul>
+</li>
+<li>设置背景图片的左上角的起始位置(默认是padding-box)</li>
+<li>三个值分别是：content-box，padding-box，border-box<ul>
+<li><code>backrgound-origin:content-box;</code>背景图片的左上角置于内容区域以内   </li>
+<li><code>background-origin:padding-box;</code>背景图片的左上角置于内边距区域以内</li>
+<li><code>background-origin:border-box;</code>背景图片的左上角置于边框区域以内<br>##背景裁切background-clip</li>
+</ul>
+</li>
+<li>设置背景图片的显示区域(默认是padidng-box)</li>
+<li>三个值分别是：content-box,padding-box,border-box<ul>
+<li><code>background-clip:content-box</code>背景图片只在内容区域显示</li>
+<li><code>background-clip:padding-box</code>背景图片只会在padding以内区域显示</li>
+<li><code>background-clip:border-box</code>背景图片只会显示在border区域以内 <h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2></li>
+</ul>
+</li>
+<li><code>background-image:背景一，背景二...</code>逗号分割多个背景</li>
+<li><code>background-position:left top,right top...</code>逗号分割设置配置位置<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ul>
+<li>线性渐变linear-gradient</li>
+<li><code>background-image:linear-gradient(方向(关键字或角度默认从上到下)，颜色 [距离]，颜色[距离])</code></li>
+<li><code>background-image:linear-gradient(to right,yellow 50px,red 60px)</code></li>
+<li>径向渐变radial-gradient</li>
+<li><code>background-image:radial-gradient(半径 at 位置(关键字或坐标),颜色 距离，颜色 距离)</code></li>
+<li><code>background-image:radial-gradient(20px at 20px 30px,yellow 10px,blue 120px)</code></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/03/Css02_background/" class="archive-article-date">
+  	<time datetime="2015-12-03T13:05:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Css301md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/02/Css301md/">新增选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Css3选择器"><a href="#Css3选择器" class="headerlink" title="Css3选择器"></a>Css3选择器</h2><ul>
+<li>属性选择器<ul>
+<li><code>E[att=”value”]</code>  选中的是att完全等于value的元素</li>
+<li><code>E[att^=”v”]</code>  选中的是att中以v开头的元素</li>
+<li><code>E[att$=”e”]</code>  选中的是att中以e结尾的元素</li>
+<li><code>E[att*=”l”]</code>  选中的是att中含有某个字符的元素</li>
+<li><code>E[att]</code>  选中的是含有att属性的元素</li>
+<li><code>E[att=”自定义属性值”]</code>  选中的是含有自定义属性的元素</li>
+</ul>
+</li>
+<li>伪类选择器(E:伪类选择器)<ul>
+<li>link，visited，hover，active</li>
+<li>first-child   选中第一个子元素    </li>
+<li>Last-child        选中最后一个子元素</li>
+<li>nth-child(n)  选中第n个子元素  正着数(顺着数)</li>
+<li>nth-last-child  倒着选中第n个子元素</li>
+<li>Empty         空伪类选择器</li>
+<li>Target        目标伪类选择器</li>
+<li>Not         否定伪类选择器</li>
+</ul>
+</li>
+<li>伪元素选择器（带有双冒号“::”的选择器）<ul>
+<li>注意的三点<ul>
+<li>伪元素给真实的元素加</li>
+<li>必须要给属性content:””</li>
+<li>伪元素是行内元素，要加display:block</li>
+<li>如果在伪元素前面写了单冒号，浏览器也会给我们翻译成双冒号</li>
+</ul>
+</li>
+<li>Before 在元素的第一个子元素之前添加伪元素<br>  li::before{<pre><code>content:&quot;ddd&quot;;
+display:block;
+width:200px;
+height:200px;
+background-color:red;
+</code></pre>  }</li>
+<li>After 在元素的最后一个子元素之后添加伪元素</li>
+<li>First-letter 选中首个字母</li>
+<li>First-line 选中首行</li>
+<li>Selection 设置选中文字时的文字颜色和背景色</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/02/Css301md/" class="archive-article-date">
+  	<time datetime="2015-12-02T12:14:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-02</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML501" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/07/HTML501/">HTML5初识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="认识HTML5"><a href="#认识HTML5" class="headerlink" title="认识HTML5"></a>认识HTML5</h2><ul>
+<li>HTML5是WHATWG和W3C博弈后的结果，它的牵头人是WHATWG.</li>
+<li>HTML5简称H5.</li>
+<li>狭义HTML5:html5新的语义化标签，表单元素等。</li>
+<li>广义HTML5：HTML5+CSS3+JS</li>
+<li>HTML5不仅仅是html的最新的一个版本，而且它制定了一系列的应用开发标准，是将web应用到应用开发平台的第一个HTML语言。</li>
+<li>HTML5引进了一些新的元素，例如：语义化标签，智能表单等,方便我们创建富互联网应用制定了一系列的javascriptAPI，例如：地理定位，重力感应等。还可以结合canvas开发网络游戏。</li>
+</ul>
+<h2 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h2><ol>
+<li>更加宽松</li>
+<li>更加简洁</li>
+<li>在实际开发中，应规范书写，不要太随意。</li>
+</ol>
+<h2 id="什么是语义化标签"><a href="#什么是语义化标签" class="headerlink" title="什么是语义化标签"></a>什么是语义化标签</h2><ul>
+<li>赋予标签意义，用合适的标签描述web结构。</li>
+<li><p>常用的语义化标签</p>
+<ul>
+<li>header      头部标签</li>
+<li>nav         导航标签</li>
+<li>section     区域标签 （sect + ion  分+不同）</li>
+<li>article     文章标签</li>
+<li>aside       侧边栏标签</li>
+<li>footer      页脚标签</li>
+</ul>
+</li>
+<li><p>section与div的区别</p>
+<ul>
+<li>section比div更具有语义化</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用新的语义化标签的好处</p>
+<ul>
+<li>对搜索引擎（百度，goole）友好。</li>
+<li>SEO(search engine optimizer)搜索引擎优化</li>
+<li>有了良好的结构和语义的网页内容更容易被搜索引擎抓取，且获取到更高的权重。在用户搜索相关内容时，排名会靠前，自然会获得更高的流量。</li>
+<li>新的语义化标签从IE9开始兼容。</li>
+</ul>
+</li>
+</ul>
+<h2 id="兼容性处理"><a href="#兼容性处理" class="headerlink" title="兼容性处理"></a>兼容性处理</h2><p><strong>ie提供的hack（IE留的后门）</strong></p>
+<pre><code>&lt;!--[if lte IE 8]&gt;
+&lt;script&gt;
+ document.createElement(&apos;header&apos;);                               
+ document.createElement(&apos;nav&apos;);
+ document.createElement(&apos;section&apos;);
+ document.createElement(&apos;article&apos;);
+ document.createElement(&apos;aside&apos;);
+ document.createElement(&apos;footer&apos;);
+&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre><p><strong>有些标签默认是行内元素 所以要加上display:block;</strong></p>
+<pre><code>&lt;!--[if lte IE 8]&gt;
+&lt;![endif]--&gt;
+less than equal to 小于等于
+</code></pre><p><strong>但实际开发中使用第三方库，已经创建好的标签且已经转换为display:blocK</strong></p>
+<pre><code>&lt;!--[if lte IE 8]&gt;
+&lt;script src=&quot;html5shiv.min.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre><h2 id="时间、媒体区域和标记标签"><a href="#时间、媒体区域和标记标签" class="headerlink" title="时间、媒体区域和标记标签"></a>时间、媒体区域和标记标签</h2><ul>
+<li><code>time</code>  时间标签</li>
+<li><code>&lt;time&gt;2015年11月21日&lt;/time&gt;</code></li>
+<li><code>time</code>标签里又提供了一个属性 <code>datetime</code>,这个属性指明了具体的时间</li>
+<li><code>figure</code> 媒体区域标签，用来表示媒体（图片，视频，音频）</li>
+<li><code>figcaption</code>  媒体区域的标题</li>
+<li><code>mark</code> 标记标签 会产生荧光笔的效果</li>
+</ul>
+<h2 id="进度条标签"><a href="#进度条标签" class="headerlink" title="进度条标签"></a>进度条标签</h2><ul>
+<li><code>progress</code> 进度条标签<ul>
+<li><code>&lt;progress min=&quot;0&quot;  value=&quot;20&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;</code><h2 id="检测HTML5支持情况的两个网站"><a href="#检测HTML5支持情况的两个网站" class="headerlink" title="检测HTML5支持情况的两个网站"></a>检测HTML5支持情况的两个网站</h2></li>
+</ul>
+</li>
+<li>检测浏览器对HTML5的支持情况：<a href="http://html5test.com" target="_blank" rel="external">http://html5test.com</a></li>
+<li>检测支持度：<a href="http://caniuse.com" target="_blank" rel="external">http://caniuse.com</a></li>
+</ul>
+<h2 id="计量标签"><a href="#计量标签" class="headerlink" title="计量标签"></a>计量标签</h2><ul>
+<li><code>meter</code> 计量标签（可以认为是progress的升级版，多了两个属性：low high.）<ul>
+<li>当value&lt;=low 的时候，呈现绿色；</li>
+<li>当value&gt;low且value&lt;=high的时候，呈现黄色；</li>
+<li>当value&gt;high的时候，呈现红色。</li>
+<li><code>&lt;meter min=&quot;0&quot; max=&quot;100&quot; value=&quot;60&quot; low=&quot;70&quot; high=&quot;80&quot;&gt;&lt;/meter&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="表单-带缓存，如果按F5是无法刷新表单的，按ctrl-F5用来强制刷新表单，或者重新打开页面"><a href="#表单-带缓存，如果按F5是无法刷新表单的，按ctrl-F5用来强制刷新表单，或者重新打开页面" class="headerlink" title="表单(带缓存，如果按F5是无法刷新表单的，按ctrl+F5用来强制刷新表单，或者重新打开页面)"></a>表单(带缓存，如果按F5是无法刷新表单的，按ctrl+F5用来强制刷新表单，或者重新打开页面)</h2><ul>
+<li>随着互联网应用和移动开发的发展，传统的表单越来越不能满足我们的需要了。HTML5对表单进行了调整</li>
+<li>新的表单元素类型<ul>
+<li>邮箱类型：type=”email”</li>
+<li>拾色器：  type=”color”</li>
+<li>网址：      type=”url”</li>
+<li>数字：      type=”number”（值可以输入数字，可以输入e科学计数法）</li>
+<li>范围：      type=”range”</li>
+<li>搜索框：    type=”search”（与text暂时是一样的）</li>
+<li>电话号码：        type=”tel”</li>
+<li>日期：         type=”date”(有日期组件)</li>
+<li>时间：         type=”time”</li>
+<li>日期和时间：type=”datetime”(通常浏览器不支持)</li>
+<li>周数：          type=”week”</li>
+<li>月：              type=”month” </li>
+<li>本地日期和时间：type=”datetime-local”</li>
+<li><code>&lt;fieldset&gt;&lt;/fieldset&gt;</code>表单框</li>
+<li><code>&lt;legend&gt;&lt;/legend&gt;</code>表单标题</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>新增的表单元素<ul>
+<li><code>datalist</code>  数据列表</li>
+<li><code>datalist</code>是隐藏在表单域中的，不显示的，使用它里面数据的表单元素应该用list属性绑定<code>datalist</code>的id</li>
+<li><code>output</code>   输出</li>
+<li><code>&lt;output&gt;&lt;/output&gt;</code> 用于输出计算结果的</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>新的表单属性</p>
+<ul>
+<li>自动获取焦点： autofocus（常用）</li>
+<li>必填项：            required（常用）</li>
+<li>自动完成：        autocomplete（常用）可写在form上（使表单域下的所有表单元素都会自动完成）</li>
+<li>禁止自动完成：   autocomplete=”off”</li>
+<li>占位符：              placeholder=”请输入用户名”</li>
+<li>正则表达式：        pattern=”正则表达式” []表示选择的范围 {}表示选择几个</li>
+<li>多个邮箱：           multiple(允许输入多个邮箱或file)逗号分割</li>
+<li>多个文件：          multiple<br>-表单域外的一个元素：form=”表单域的id”在表单提交的时候将它也一起提交，表示该表单元素属于这个表单域。</li>
+</ul>
+</li>
+<li><p>新的表单事件</p>
+<ul>
+<li><code>oninvalid</code>     表单元素验证不通过时，触发</li>
+<li><p><code>oninput</code>       当用户输入时，触发</p>
+</li>
+<li><p><code>oninput</code>与<code>onchange</code>的区别</p>
+<p>  1.oninput在用户一输入时就触发，onchange是用户输入后，并且该表单元素失去焦点时才触发。<br>  2.oninput只能作用于input和textarea;onchange可以作用于input，textarea和select等<br>  3.oninput的兼容性没有onchange好。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/11/07/HTML501/" class="archive-article-date">
+  	<time datetime="2015-11-07T13:26:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-11-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -240,7 +1278,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/html-js-css/" style="font-size: 10px;">html js css</a>
+    				<a href="/tags/Css3/" style="font-size: 20px;">Css3</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html-js-css/" style="font-size: 10px;">html js css</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     			</div>
     	</section>
     
