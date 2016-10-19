@@ -132,6 +132,471 @@
       <div class="body-wrap">
         
   
+    <article id="post-Css3_阴影及颜色表示发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/10/Css3_阴影及颜色表示发/">阴影属性及颜色表示法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ul>
+<li>文本阴影<ul>
+<li>text-shadow:水平偏移 竖直偏移 模糊程度 阴影的颜色</li>
+<li>水平偏移：值越大，越往右，值越小，越往左</li>
+<li>竖直偏移：值越大，越往下，值越小，越往上</li>
+<li>模糊：模糊不能为负值，值越大，越模糊</li>
+<li>阴影颜色：为你想要的颜色</li>
+<li><code>text-shadow:10px 10px 0px #00ff000</code></li>
+</ul>
+</li>
+<li>盒子阴影<ul>
+<li>box-shadow:水平偏移 竖直偏移 模糊程度 模糊的扩展距离 阴影颜色 内嵌</li>
+<li>模糊的扩展距离：从元素边开始到开始模糊的地方，值越大扩展的距离越大</li>
+<li>内嵌：让阴影变成内嵌的阴影，称之内阴影，不写默认是外阴影</li>
+<li><code>box-shadow:10px 10px 1px 10px #ccc inset</code> <h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2></li>
+</ul>
+</li>
+<li>边框圆角<ul>
+<li>border-radius</li>
+<li>值有四种情况<ul>
+<li>一个值，代表四个角的圆角值都一样<code>border-radius:10px</code></li>
+<li>两个值，代表对角线的两个角的值（左上/右下 右上/左下）<code>border-radius:10px 20px</code></li>
+<li>三个值，代表左上，右下，右上/左下 <code>border-radius:10px 20px 30px</code></li>
+<li>四个值，代表顺时针各个角<code>border-radius:10px 20px 30px 40px</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="颜色表示方式"><a href="#颜色表示方式" class="headerlink" title="颜色表示方式"></a>颜色表示方式</h2><ul>
+<li>rgba()<ul>
+<li>r:red</li>
+<li>g:green</li>
+<li>b:blue</li>
+<li>a:alpha 不透明度（0-1）</li>
+<li><code>background-color:rgba(125,125,125,0.5)</code>     </li>
+</ul>
+</li>
+<li>hsla()<ul>
+<li>h:色调</li>
+<li>s:饱和度</li>
+<li>l:亮度或明度</li>
+<li>a:alpha不透明度(0-1) </li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/10/Css3_阴影及颜色表示发/" class="archive-article-date">
+  	<time datetime="2015-12-10T02:25:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Css02_background" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/03/Css02_background/">Background</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景尺寸background-size"><a href="#背景尺寸background-size" class="headerlink" title="背景尺寸background-size"></a>背景尺寸background-size</h2><ul>
+<li>background-size可以改变引用的背景图片的尺寸，值可以为具体的数字，%,auto,cover。</li>
+<li>当为具体数字时<ul>
+<li><code>background-size:900px 500px;(宽，高)</code></li>
+</ul>
+</li>
+<li>当为%，auto时，可实现背景图片的尺寸保持宽高比并且随着元素的宽度或高度变化而变化<ul>
+<li><code>background-size:100% auto</code></li>
+<li><code>background-size:auto 100%</code></li>
+<li><code>background-size:auto</code>背景图片保持原有图片的大小</li>
+</ul>
+</li>
+<li>当为cover时，无论元素多大，图片都能完全覆盖住整个div<br>  -<code>background-size:cover</code></li>
+<li>当为contain时，实现背景图片完全显示在元素中，无论是否覆盖真个元素<ul>
+<li><code>background-size:contain</code><h2 id="背景原点background-origin"><a href="#背景原点background-origin" class="headerlink" title="背景原点background-origin"></a>背景原点background-origin</h2></li>
+</ul>
+</li>
+<li>设置背景图片的左上角的起始位置(默认是padding-box)</li>
+<li>三个值分别是：content-box，padding-box，border-box<ul>
+<li><code>backrgound-origin:content-box;</code>背景图片的左上角置于内容区域以内   </li>
+<li><code>background-origin:padding-box;</code>背景图片的左上角置于内边距区域以内</li>
+<li><code>background-origin:border-box;</code>背景图片的左上角置于边框区域以内<br>##背景裁切background-clip</li>
+</ul>
+</li>
+<li>设置背景图片的显示区域(默认是padidng-box)</li>
+<li>三个值分别是：content-box,padding-box,border-box<ul>
+<li><code>background-clip:content-box</code>背景图片只在内容区域显示</li>
+<li><code>background-clip:padding-box</code>背景图片只会在padding以内区域显示</li>
+<li><code>background-clip:border-box</code>背景图片只会显示在border区域以内 <h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2></li>
+</ul>
+</li>
+<li><code>background-image:背景一，背景二...</code>逗号分割多个背景</li>
+<li><code>background-position:left top,right top...</code>逗号分割设置配置位置<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ul>
+<li>线性渐变linear-gradient</li>
+<li><code>background-image:linear-gradient(方向(关键字或角度默认从上到下)，颜色 [距离]，颜色[距离])</code></li>
+<li><code>background-image:linear-gradient(to right,yellow 50px,red 60px)</code></li>
+<li>径向渐变radial-gradient</li>
+<li><code>background-image:radial-gradient(半径 at 位置(关键字或坐标),颜色 距离，颜色 距离)</code></li>
+<li><code>background-image:radial-gradient(20px at 20px 30px,yellow 10px,blue 120px)</code></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/03/Css02_background/" class="archive-article-date">
+  	<time datetime="2015-12-03T13:05:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Css301md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/02/Css301md/">新增选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Css3选择器"><a href="#Css3选择器" class="headerlink" title="Css3选择器"></a>Css3选择器</h2><ul>
+<li>属性选择器<ul>
+<li><code>E[att=”value”]</code>  选中的是att完全等于value的元素</li>
+<li><code>E[att^=”v”]</code>  选中的是att中以v开头的元素</li>
+<li><code>E[att$=”e”]</code>  选中的是att中以e结尾的元素</li>
+<li><code>E[att*=”l”]</code>  选中的是att中含有某个字符的元素</li>
+<li><code>E[att]</code>  选中的是含有att属性的元素</li>
+<li><code>E[att=”自定义属性值”]</code>  选中的是含有自定义属性的元素</li>
+</ul>
+</li>
+<li>伪类选择器(E:伪类选择器)<ul>
+<li>link，visited，hover，active</li>
+<li>first-child   选中第一个子元素    </li>
+<li>Last-child        选中最后一个子元素</li>
+<li>nth-child(n)  选中第n个子元素  正着数(顺着数)</li>
+<li>nth-last-child  倒着选中第n个子元素</li>
+<li>Empty         空伪类选择器</li>
+<li>Target        目标伪类选择器</li>
+<li>Not         否定伪类选择器</li>
+</ul>
+</li>
+<li>伪元素选择器（带有双冒号“::”的选择器）<ul>
+<li>注意的三点<ul>
+<li>伪元素给真实的元素加</li>
+<li>必须要给属性content:””</li>
+<li>伪元素是行内元素，要加display:block</li>
+<li>如果在伪元素前面写了单冒号，浏览器也会给我们翻译成双冒号</li>
+</ul>
+</li>
+<li>Before 在元素的第一个子元素之前添加伪元素<br>  li::before{<pre><code>content:&quot;ddd&quot;;
+display:block;
+width:200px;
+height:200px;
+background-color:red;
+</code></pre>  }</li>
+<li>After 在元素的最后一个子元素之后添加伪元素</li>
+<li>First-letter 选中首个字母</li>
+<li>First-line 选中首行</li>
+<li>Selection 设置选中文字时的文字颜色和背景色</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/02/Css301md/" class="archive-article-date">
+  	<time datetime="2015-12-02T12:14:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-02</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-HTML501" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/07/HTML501/">HTML5初识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="认识HTML5"><a href="#认识HTML5" class="headerlink" title="认识HTML5"></a>认识HTML5</h2><ul>
+<li>HTML5是WHATWG和W3C博弈后的结果，它的牵头人是WHATWG.</li>
+<li>HTML5简称H5.</li>
+<li>狭义HTML5:html5新的语义化标签，表单元素等。</li>
+<li>广义HTML5：HTML5+CSS3+JS</li>
+<li>HTML5不仅仅是html的最新的一个版本，而且它制定了一系列的应用开发标准，是将web应用到应用开发平台的第一个HTML语言。</li>
+<li>HTML5引进了一些新的元素，例如：语义化标签，智能表单等,方便我们创建富互联网应用制定了一系列的javascriptAPI，例如：地理定位，重力感应等。还可以结合canvas开发网络游戏。</li>
+</ul>
+<h2 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h2><ol>
+<li>更加宽松</li>
+<li>更加简洁</li>
+<li>在实际开发中，应规范书写，不要太随意。</li>
+</ol>
+<h2 id="什么是语义化标签"><a href="#什么是语义化标签" class="headerlink" title="什么是语义化标签"></a>什么是语义化标签</h2><ul>
+<li>赋予标签意义，用合适的标签描述web结构。</li>
+<li><p>常用的语义化标签</p>
+<ul>
+<li>header      头部标签</li>
+<li>nav         导航标签</li>
+<li>section     区域标签 （sect + ion  分+不同）</li>
+<li>article     文章标签</li>
+<li>aside       侧边栏标签</li>
+<li>footer      页脚标签</li>
+</ul>
+</li>
+<li><p>section与div的区别</p>
+<ul>
+<li>section比div更具有语义化</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用新的语义化标签的好处</p>
+<ul>
+<li>对搜索引擎（百度，goole）友好。</li>
+<li>SEO(search engine optimizer)搜索引擎优化</li>
+<li>有了良好的结构和语义的网页内容更容易被搜索引擎抓取，且获取到更高的权重。在用户搜索相关内容时，排名会靠前，自然会获得更高的流量。</li>
+<li>新的语义化标签从IE9开始兼容。</li>
+</ul>
+</li>
+</ul>
+<h2 id="兼容性处理"><a href="#兼容性处理" class="headerlink" title="兼容性处理"></a>兼容性处理</h2><p><strong>ie提供的hack（IE留的后门）</strong></p>
+<pre><code>&lt;!--[if lte IE 8]&gt;
+&lt;script&gt;
+ document.createElement(&apos;header&apos;);                               
+ document.createElement(&apos;nav&apos;);
+ document.createElement(&apos;section&apos;);
+ document.createElement(&apos;article&apos;);
+ document.createElement(&apos;aside&apos;);
+ document.createElement(&apos;footer&apos;);
+&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre><p><strong>有些标签默认是行内元素 所以要加上display:block;</strong></p>
+<pre><code>&lt;!--[if lte IE 8]&gt;
+&lt;![endif]--&gt;
+less than equal to 小于等于
+</code></pre><p><strong>但实际开发中使用第三方库，已经创建好的标签且已经转换为display:blocK</strong></p>
+<pre><code>&lt;!--[if lte IE 8]&gt;
+&lt;script src=&quot;html5shiv.min.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre><h2 id="时间、媒体区域和标记标签"><a href="#时间、媒体区域和标记标签" class="headerlink" title="时间、媒体区域和标记标签"></a>时间、媒体区域和标记标签</h2><ul>
+<li><code>time</code>  时间标签</li>
+<li><code>&lt;time&gt;2015年11月21日&lt;/time&gt;</code></li>
+<li><code>time</code>标签里又提供了一个属性 <code>datetime</code>,这个属性指明了具体的时间</li>
+<li><code>figure</code> 媒体区域标签，用来表示媒体（图片，视频，音频）</li>
+<li><code>figcaption</code>  媒体区域的标题</li>
+<li><code>mark</code> 标记标签 会产生荧光笔的效果</li>
+</ul>
+<h2 id="进度条标签"><a href="#进度条标签" class="headerlink" title="进度条标签"></a>进度条标签</h2><ul>
+<li><code>progress</code> 进度条标签<ul>
+<li><code>&lt;progress min=&quot;0&quot;  value=&quot;20&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;</code><h2 id="检测HTML5支持情况的两个网站"><a href="#检测HTML5支持情况的两个网站" class="headerlink" title="检测HTML5支持情况的两个网站"></a>检测HTML5支持情况的两个网站</h2></li>
+</ul>
+</li>
+<li>检测浏览器对HTML5的支持情况：<a href="http://html5test.com" target="_blank" rel="external">http://html5test.com</a></li>
+<li>检测支持度：<a href="http://caniuse.com" target="_blank" rel="external">http://caniuse.com</a></li>
+</ul>
+<h2 id="计量标签"><a href="#计量标签" class="headerlink" title="计量标签"></a>计量标签</h2><ul>
+<li><code>meter</code> 计量标签（可以认为是progress的升级版，多了两个属性：low high.）<ul>
+<li>当value&lt;=low 的时候，呈现绿色；</li>
+<li>当value&gt;low且value&lt;=high的时候，呈现黄色；</li>
+<li>当value&gt;high的时候，呈现红色。</li>
+<li><code>&lt;meter min=&quot;0&quot; max=&quot;100&quot; value=&quot;60&quot; low=&quot;70&quot; high=&quot;80&quot;&gt;&lt;/meter&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="表单-带缓存，如果按F5是无法刷新表单的，按ctrl-F5用来强制刷新表单，或者重新打开页面"><a href="#表单-带缓存，如果按F5是无法刷新表单的，按ctrl-F5用来强制刷新表单，或者重新打开页面" class="headerlink" title="表单(带缓存，如果按F5是无法刷新表单的，按ctrl+F5用来强制刷新表单，或者重新打开页面)"></a>表单(带缓存，如果按F5是无法刷新表单的，按ctrl+F5用来强制刷新表单，或者重新打开页面)</h2><ul>
+<li>随着互联网应用和移动开发的发展，传统的表单越来越不能满足我们的需要了。HTML5对表单进行了调整</li>
+<li>新的表单元素类型<ul>
+<li>邮箱类型：type=”email”</li>
+<li>拾色器：  type=”color”</li>
+<li>网址：      type=”url”</li>
+<li>数字：      type=”number”（值可以输入数字，可以输入e科学计数法）</li>
+<li>范围：      type=”range”</li>
+<li>搜索框：    type=”search”（与text暂时是一样的）</li>
+<li>电话号码：        type=”tel”</li>
+<li>日期：         type=”date”(有日期组件)</li>
+<li>时间：         type=”time”</li>
+<li>日期和时间：type=”datetime”(通常浏览器不支持)</li>
+<li>周数：          type=”week”</li>
+<li>月：              type=”month” </li>
+<li>本地日期和时间：type=”datetime-local”</li>
+<li><code>&lt;fieldset&gt;&lt;/fieldset&gt;</code>表单框</li>
+<li><code>&lt;legend&gt;&lt;/legend&gt;</code>表单标题</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>新增的表单元素<ul>
+<li><code>datalist</code>  数据列表</li>
+<li><code>datalist</code>是隐藏在表单域中的，不显示的，使用它里面数据的表单元素应该用list属性绑定<code>datalist</code>的id</li>
+<li><code>output</code>   输出</li>
+<li><code>&lt;output&gt;&lt;/output&gt;</code> 用于输出计算结果的</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>新的表单属性</p>
+<ul>
+<li>自动获取焦点： autofocus（常用）</li>
+<li>必填项：            required（常用）</li>
+<li>自动完成：        autocomplete（常用）可写在form上（使表单域下的所有表单元素都会自动完成）</li>
+<li>禁止自动完成：   autocomplete=”off”</li>
+<li>占位符：              placeholder=”请输入用户名”</li>
+<li>正则表达式：        pattern=”正则表达式” []表示选择的范围 {}表示选择几个</li>
+<li>多个邮箱：           multiple(允许输入多个邮箱或file)逗号分割</li>
+<li>多个文件：          multiple<br>-表单域外的一个元素：form=”表单域的id”在表单提交的时候将它也一起提交，表示该表单元素属于这个表单域。</li>
+</ul>
+</li>
+<li><p>新的表单事件</p>
+<ul>
+<li><code>oninvalid</code>     表单元素验证不通过时，触发</li>
+<li><p><code>oninput</code>       当用户输入时，触发</p>
+</li>
+<li><p><code>oninput</code>与<code>onchange</code>的区别</p>
+<p>  1.oninput在用户一输入时就触发，onchange是用户输入后，并且该表单元素失去焦点时才触发。<br>  2.oninput只能作用于input和textarea;onchange可以作用于input，textarea和select等<br>  3.oninput的兼容性没有onchange好。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/11/07/HTML501/" class="archive-article-date">
+  	<time datetime="2015-11-07T13:26:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-11-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-URL构成" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
