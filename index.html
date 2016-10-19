@@ -132,6 +132,59 @@
       <div class="body-wrap">
         
   
+    <article id="post-css盒子的等比例缩放" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/19/css盒子的等比例缩放/">css盒子等比例缩放</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>padding-bottom</em>有一个非常重要的特性，即当它的值是百分比形式时，<br>百分比的基数是其所在元素的父元素的宽度，而不是高度（同padding-left和padding-right一样），<br>则具体的解决方案是：将元素的高度height设为0，<br>使其高度等于该元素的padding-bottom，再合理设置该元素padding-bottom的值</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/body&gt;</div></pre></td></tr></table></figure></p>
+<p>将其每个div的宽度设为25%，高度设为0，让其左浮动，<br>padding-bottom的值设为25%（即父元素body的宽度的25%），<br>这样便成为了四个水平方向排列的正方形，并且在你改变浏览器窗口大小时，<br>同样会等比例缩放</p>
+<p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">  &lt;title&gt;Document&lt;/title&gt;</div><div class="line">  &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">    .div&#123;</div><div class="line">      background-color: red;</div><div class="line">      width: 50%;</div><div class="line">      height: 0;</div><div class="line">      padding-bottom: 25%;</div><div class="line">    &#125;</div><div class="line">  &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  &lt;div class=&quot;div&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/19/css盒子的等比例缩放/" class="archive-article-date">
+  	<time datetime="2016-10-19T13:05:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css/">Css</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-css实现垂直水平居中" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -881,113 +934,6 @@
 
 
   
-    <article id="post-伸缩布局和盒子尺寸md" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/12/伸缩布局和盒子尺寸md/">伸缩布局及盒子尺寸</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="盒子尺寸box-sizing"><a href="#盒子尺寸box-sizing" class="headerlink" title="盒子尺寸box-sizing"></a>盒子尺寸box-sizing</h2><ul>
-<li>box-sizing:content-box(默认值)<ul>
-<li>盒子总宽度=width+padding+border</li>
-</ul>
-</li>
-<li>box-sizing:border-box<ul>
-<li>让盒子的总宽度等于设置的width<h2 id="Flex布局（伸缩布局）"><a href="#Flex布局（伸缩布局）" class="headerlink" title="Flex布局（伸缩布局）"></a>Flex布局（伸缩布局）</h2></li>
-</ul>
-</li>
-<li>伸缩容器display:flex<ul>
-<li>伸缩容器属性<ul>
-<li>flex-direction 调整主轴的方向（默认是水平方向）四个值可选：<ul>
-<li>row (水平方向左到右)</li>
-<li>column (竖直方向上到下)</li>
-<li>row-reverse (水平反向)</li>
-<li>column-reverse (竖直反向)</li>
-</ul>
-</li>
-<li>flex-wrap 调整伸缩项目是否换行 两个值可选 ：nowrap(不换行默认)，wrap(换行)</li>
-<li>align-items 调整伸缩项目在侧轴的对齐方式 四个值可选：<ul>
-<li>flex-start 侧轴起始点对齐</li>
-<li>flex-end   侧轴终点对齐</li>
-<li>center     侧轴居中对齐</li>
-<li>stretch    伸缩对齐（默认）</li>
-</ul>
-</li>
-<li>align-content 调整换行后伸缩项目的对齐方式 六个值可选：<ul>
-<li>flex-start</li>
-<li>flex-end</li>
-<li>center</li>
-<li>space-around 四周环绕</li>
-<li>space-between 两端对齐</li>
-<li>stretch 拉伸 </li>
-</ul>
-</li>
-<li>justify-content 调整伸缩项目在主轴方向上的对齐方式，五个值可选：<ul>
-<li>flex-start 主轴起始点对齐</li>
-<li>flex-end 主轴终点对齐</li>
-<li>center 居中对齐</li>
-<li>space-around 四周环绕</li>
-<li>space-between 两端对齐 </li>
-</ul>
-</li>
-<li>flex-flow 是flex-direction和flex-wrap的简写形式</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>伸缩项目<ul>
-<li>伸缩项目属性<ul>
-<li>flex 代表伸缩项目在伸缩容器中所占的剩余位置的比例</li>
-<li>align-self 设置自己的对齐方式 会覆盖父元素设置的侧轴对齐方式</li>
-<li>order  设置伸缩项目的排序方式 数字越大越靠后，越小越靠前</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2015/12/12/伸缩布局和盒子尺寸md/" class="archive-article-date">
-  	<time datetime="2015-12-12T12:30:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1051,7 +997,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Css3/" style="font-size: 20px;">Css3</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html-js-css/" style="font-size: 10px;">html js css</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    				<a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/Css3/" style="font-size: 20px;">Css3</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html-js-css/" style="font-size: 10px;">html js css</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     			</div>
     	</section>
     
