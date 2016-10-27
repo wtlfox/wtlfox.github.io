@@ -132,6 +132,89 @@
       <div class="body-wrap">
         
   
+    <article id="post-地理定位及百度地图API" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/27/地理定位及百度地图API/">地理定位</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="附"><a href="#附" class="headerlink" title="附"></a>附</h3><ul>
+<li><a href="http://lbsyun.baidu.com/index.php?title=jspopular&amp;qq-pf-to=pcqq.c2c" target="_blank" rel="external">百度地图 javascript API</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation" target="_blank" rel="external">MDN 地理定位详解</a></li>
+</ul>
+<h3 id="地理位置定位"><a href="#地理位置定位" class="headerlink" title="地理位置定位"></a>地理位置定位</h3><blockquote>
+<p>只是简单的调用</p>
+</blockquote>
+<h4 id="geolocation-对象"><a href="#geolocation-对象" class="headerlink" title="geolocation 对象"></a>geolocation 对象</h4><blockquote>
+<p>地理定位API通过 <code>navigator.geolocation</code>调用</p>
+</blockquote>
+<ul>
+<li><p>由于兼容性问题，需要调用前进行判断</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.navigator.geolocation) &#123;</div><div class="line">  <span class="comment">// 如果存在这个方法就调用</span></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  <span class="comment">//如果不存在</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"不支持地图定位"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="获取当前定位"><a href="#获取当前定位" class="headerlink" title="获取当前定位"></a>获取当前定位</h4><blockquote>
+<p>通过调用 <code>getCurrentPosition()</code> 函数获取用户当前定位位置。<strong>异步</strong>地请求获取用户位置，并查询定位硬件来获取最新信息。</p>
+</blockquote>
+<p><strong><code>getCurrentPosition</code></strong>方法有<strong>三个</strong>参数</p>
+<blockquote>
+<p>window.navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);</p>
+</blockquote>
+<ul>
+<li><p>第一个参数成功时调用的回调函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">successCallback</span>(<span class="params">position</span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> longitude = position.coords.longitude; <span class="comment">//经度</span></div><div class="line">   <span class="keyword">var</span> latitude = position.coords.latitude; <span class="comment">//维度</span></div><div class="line">   <span class="comment">//position 包含地理定位的信息</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二个参数失败时调用的回调函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">errorCallback</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(e);<span class="comment">//包含错误信息</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>第三个参数设定最长可接受的定位返回时间、等待请求的时间和是否获取高精度定位</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> options = &#123;</div><div class="line">  <span class="comment">// 指示浏览器获取高精度的位置，默认为false</span></div><div class="line">    enableHighAccuracy: <span class="literal">true</span>, <span class="comment">//是否高精度</span></div><div class="line">     <span class="comment">// 指定获取地理位置的超时时间，默认不限时，单位为毫秒</span></div><div class="line">    timeout: <span class="number">30000</span>, <span class="comment">//连接超时的时长</span></div><div class="line">     <span class="comment">// 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。</span></div><div class="line">    maximumAge: <span class="number">60000</span> <span class="comment">//重复访问的时长</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="完整的代码"><a href="#完整的代码" class="headerlink" title="完整的代码"></a>完整的代码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>地理定位<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">  html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img &#123; </div><div class="line">    margin: 0; padding: 0 </div><div class="line">  &#125;</div><div class="line"></div><div class="line">    </div><div class="line">    html &#123;</div><div class="line">        width: 100%;</div><div class="line">        height: 100%;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    body &#123;</div><div class="line">        width: 100%;</div><div class="line">        height: 100%;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    #container &#123;</div><div class="line">        width: 100%;</div><div class="line">        height: 100%;</div><div class="line">    &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 先引入百度 map javascript版 API --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://api.map.baidu.com/api?v=2.0&amp;ak=0A5bc3c4fb543c8f9bc54b77bc155724"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//先检测浏览器是否支持地理定位</span></div><div class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.navigator.geolocation) &#123; <span class="comment">//支持地理定位</span></div><div class="line">            <span class="keyword">var</span> options = &#123;</div><div class="line">              <span class="comment">// 指示浏览器获取高精度的位置，默认为false</span></div><div class="line">                enableHighAccuracy: <span class="literal">true</span>, <span class="comment">//是否高精度</span></div><div class="line">                 <span class="comment">// 指定获取地理位置的超时时间，默认不限时，单位为毫秒</span></div><div class="line">                timeout: <span class="number">30000</span>, <span class="comment">//连接超时的时长</span></div><div class="line">                 <span class="comment">// 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。</span></div><div class="line">                maximumAge: <span class="number">60000</span> <span class="comment">//重复访问的时长</span></div><div class="line">            &#125;;</div><div class="line">            <span class="comment">//这个方法有3个参数 一、</span></div><div class="line">            <span class="built_in">window</span>.navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options);</div><div class="line"></div><div class="line">            <span class="comment">//访问地理位置成功的回调函数</span></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">successCallback</span>(<span class="params">position</span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> longitude = position.coords.longitude; <span class="comment">//经度</span></div><div class="line">                <span class="keyword">var</span> latitude = position.coords.latitude; <span class="comment">//维度</span></div><div class="line"></div><div class="line">                <span class="comment">//以下写法可以认为是固定的</span></div><div class="line">                <span class="keyword">var</span> map = <span class="keyword">new</span> BMap.Map(<span class="string">'container'</span>); <span class="comment">//把地图呈现在哪里</span></div><div class="line">                <span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(longitude, latitude); <span class="comment">//把经纬度传给百度地图</span></div><div class="line">                map.centerAndZoom(point, <span class="number">15</span>); <span class="comment">//把地理位置呈现在地图的中央，并且缩放到合适的比例</span></div><div class="line"></div><div class="line">                <span class="keyword">var</span> marker = <span class="keyword">new</span> BMap.Marker(point); <span class="comment">//给地图添加标注</span></div><div class="line">                map.addOverlay(marker); <span class="comment">//把标注放在地图上</span></div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">errorCallback</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(e);<span class="comment">//包含错误信息</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/27/地理定位及百度地图API/" class="archive-article-date">
+  	<time datetime="2016-10-27T09:13:08.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5地理定位-百度地图API/">html5地理定位 百度地图API</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-css盒子的等比例缩放" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -988,97 +1071,6 @@
 
 
   
-    <article id="post-Css02_background" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/03/Css02_background/">Background</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景尺寸background-size"><a href="#背景尺寸background-size" class="headerlink" title="背景尺寸background-size"></a>背景尺寸background-size</h2><ul>
-<li>background-size可以改变引用的背景图片的尺寸，值可以为具体的数字，%,auto,cover。</li>
-<li>当为具体数字时<ul>
-<li><code>background-size:900px 500px;(宽，高)</code></li>
-</ul>
-</li>
-<li>当为%，auto时，可实现背景图片的尺寸保持宽高比并且随着元素的宽度或高度变化而变化<ul>
-<li><code>background-size:100% auto</code></li>
-<li><code>background-size:auto 100%</code></li>
-<li><code>background-size:auto</code>背景图片保持原有图片的大小</li>
-</ul>
-</li>
-<li>当为cover时，无论元素多大，图片都能完全覆盖住整个div<br>  -<code>background-size:cover</code></li>
-<li>当为contain时，实现背景图片完全显示在元素中，无论是否覆盖真个元素<ul>
-<li><code>background-size:contain</code><h2 id="背景原点background-origin"><a href="#背景原点background-origin" class="headerlink" title="背景原点background-origin"></a>背景原点background-origin</h2></li>
-</ul>
-</li>
-<li>设置背景图片的左上角的起始位置(默认是padding-box)</li>
-<li>三个值分别是：content-box，padding-box，border-box<ul>
-<li><code>backrgound-origin:content-box;</code>背景图片的左上角置于内容区域以内   </li>
-<li><code>background-origin:padding-box;</code>背景图片的左上角置于内边距区域以内</li>
-<li><code>background-origin:border-box;</code>背景图片的左上角置于边框区域以内<br>##背景裁切background-clip</li>
-</ul>
-</li>
-<li>设置背景图片的显示区域(默认是padidng-box)</li>
-<li>三个值分别是：content-box,padding-box,border-box<ul>
-<li><code>background-clip:content-box</code>背景图片只在内容区域显示</li>
-<li><code>background-clip:padding-box</code>背景图片只会在padding以内区域显示</li>
-<li><code>background-clip:border-box</code>背景图片只会显示在border区域以内 <h2 id="多重背景"><a href="#多重背景" class="headerlink" title="多重背景"></a>多重背景</h2></li>
-</ul>
-</li>
-<li><code>background-image:背景一，背景二...</code>逗号分割多个背景</li>
-<li><code>background-position:left top,right top...</code>逗号分割设置配置位置<h2 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h2><ul>
-<li>线性渐变linear-gradient</li>
-<li><code>background-image:linear-gradient(方向(关键字或角度默认从上到下)，颜色 [距离]，颜色[距离])</code></li>
-<li><code>background-image:linear-gradient(to right,yellow 50px,red 60px)</code></li>
-<li>径向渐变radial-gradient</li>
-<li><code>background-image:radial-gradient(半径 at 位置(关键字或坐标),颜色 距离，颜色 距离)</code></li>
-<li><code>background-image:radial-gradient(20px at 20px 30px,yellow 10px,blue 120px)</code></li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2015/12/03/Css02_background/" class="archive-article-date">
-  	<time datetime="2015-12-03T13:05:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1142,7 +1134,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/Css3/" style="font-size: 20px;">Css3</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html-js-css/" style="font-size: 10px;">html js css</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    				<a href="/tags/Css/" style="font-size: 10px;">Css</a> <a href="/tags/Css3/" style="font-size: 20px;">Css3</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/css3/" style="font-size: 15px;">css3</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html-js-css/" style="font-size: 10px;">html js css</a> <a href="/tags/html5地理定位-百度地图API/" style="font-size: 10px;">html5地理定位 百度地图API</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     			</div>
     	</section>
     
