@@ -18,9 +18,8 @@ npm install angular –save
 
 重要的指令
 ng-app
-
 所有需要ng管理的代码必须被包裹在一个有ng-app指令的元素中
-ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个">
+ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个指">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular初识">
 <meta property="og:url" content="http://yoursite.com/2016/04/14/angular入门01/index.html">
@@ -37,10 +36,9 @@ npm install angular –save
 
 重要的指令
 ng-app
-
 所有需要ng管理的代码必须被包裹在一个有ng-app指令的元素中
-ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个">
-<meta property="og:updated_time" content="2016-10-17T02:20:51.657Z">
+ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个指">
+<meta property="og:updated_time" content="2016-11-07T06:49:16.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular初识">
 <meta name="twitter:description" content="Angular的核心特性
@@ -55,9 +53,8 @@ npm install angular –save
 
 重要的指令
 ng-app
-
 所有需要ng管理的代码必须被包裹在一个有ng-app指令的元素中
-ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个">
+ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个指">
   
     <link rel="alternative" href="/atom.xml" title="王天理的博客" type="application/atom+xml">
   
@@ -205,28 +202,18 @@ ng-app是ng的入口，表示当前元素的所有指令都会被angular管理�
 <li>npm install angular –save</li>
 </ul>
 <h2 id="重要的指令"><a href="#重要的指令" class="headerlink" title="重要的指令"></a>重要的指令</h2><ul>
-<li><p>ng-app</p>
-<ul>
+<li>ng-app<ul>
 <li>所有需要ng管理的代码必须被包裹在一个有ng-app指令的元素中</li>
 <li>ng-app是ng的入口，表示当前元素的所有指令都会被angular管理（对每一个指令进行分析和操作）</li>
-<li>当angular执行ng-app的代码时会开辟一块空间，这块空间用来存储页面上可能会用到的数据模型</li>
+<li>当angular执行ng-app的代码时会开辟一块空间，这块空间用来存储页面上可能会用到的数据模</li>
 </ul>
 </li>
-<li><p>ng-model是双向数据绑定的指令</p>
-</li>
+<li>ng-model是双向数据绑定的指令</li>
 </ul>
 <h2 id="Angular特点"><a href="#Angular特点" class="headerlink" title="Angular特点"></a>Angular特点</h2><ul>
 <li>最大程度的减少页面的DOM操作</li>
 </ul>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><pre><code>&lt;body&gt;
-      &lt;div ng-app&gt;
-    &lt;h2&gt;使用NG实现双向数据绑定&lt;/h2&gt;
-    &lt;input type=&quot;text&quot; ng-model=&quot;user.name&quot; placeholder=&quot;请输入用户名&quot;&gt;
-    &lt;p&gt;hello &lt;strong&gt;{{user.name}}&lt;/strong&gt;&lt;/p&gt;
-      &lt;/div&gt;
- &lt;script src=&quot;../node_modules/angular/angular.min.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-</code></pre>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">  	&lt;div ng-app&gt;</div><div class="line">    &lt;h2&gt;使用NG实现双向数据绑定&lt;/h2&gt;</div><div class="line">    &lt;input type="text" ng-model="user.name" placeholder="请输入用户名"&gt;</div><div class="line">    &lt;p&gt;hello &lt;strong&gt;&#123;&#123;user.name&#125;&#125;&lt;/strong&gt;&lt;/p&gt;</div><div class="line">  	&lt;/div&gt;</div><div class="line">	&lt;script src="../node_modules/angular/angular.min.js"&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
