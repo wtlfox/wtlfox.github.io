@@ -132,6 +132,339 @@
       <div class="body-wrap">
         
   
+    <article id="post-Css3_动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/20/Css3_动画/">动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="2D转换transform"><a href="#2D转换transform" class="headerlink" title="2D转换transform"></a>2D转换transform</h2><ul>
+<li>位移 translate()<ul>
+<li><code>transform:translateX(600px)</code>向右平移600px</li>
+<li><code>transform:translateY(-400px)</code>向上移动400px</li>
+<li><code>transform:translate(200px -200px)</code>向右移动200px 向上移动200px</li>
+</ul>
+</li>
+<li>旋转 rotate()<ul>
+<li><code>transform:rotate(45deg)</code>顺时针旋转45度</li>
+<li><code>transform:rotateX(45deg)</code>顺时针绕着x轴旋转</li>
+<li><code>transform:rotateY(45deg)</code>顺时针绕着y轴旋转 </li>
+<li>规律：当值越来越大的时候，绕着顺时针旋转，当值越来越小的时候，逆时针旋转</li>
+</ul>
+</li>
+<li>缩放 scale()<ul>
+<li><code>transform:scale(2)</code>放大2倍</li>
+<li><code>transform:scale(0.1)</code>缩小到0.1被</li>
+<li>规律：值大于1时放大，下于1时缩小</li>
+</ul>
+</li>
+<li>倾斜 skew()<ul>
+<li><code>transform:skewX(45deg)</code>角度为正，向左倾斜，角度为负，向右倾斜</li>
+<li><code>transform:skewY(-45deg)</code>角度为正，向下倾斜，角度为负，向上倾斜</li>
+</ul>
+</li>
+<li>transform-origin转换原点（指转换元素以哪个点进行转化）<h2 id="3D转换"><a href="#3D转换" class="headerlink" title="3D转换"></a>3D转换</h2></li>
+<li>3d位移 translate<ul>
+<li>translateX 向右为正，向做为负</li>
+<li>translateY 正值向下，负值向上</li>
+<li>translateZ 正值靠近我们，负值远离我们<h2 id="透视perspective"><a href="#透视perspective" class="headerlink" title="透视perspective"></a>透视perspective</h2></li>
+</ul>
+</li>
+<li>脑显示屏是一个2D平面，图像之所以具有立体感（3D效果），其实只是一种视觉呈现 ，通过透视可以实现此目的。</li>
+<li>透视可以将一个2D平面，在转换的过程当中，呈现3D效果。（没有perspective，便“没有”Z轴） </li>
+<li>透视原点 perspective-origin<ul>
+<li>Perspective-originj:x y</li>
+<li>X轴代表眼睛在水平动</li>
+<li>Y轴代表眼睛在竖直动</li>
+</ul>
+</li>
+<li>Perspective可以写在父级，也可以写在自己<ul>
+<li>父级的时候 是一个属性 perspective <code>perspective:1000px;</code></li>
+<li>自己的时候是一个属性值 perspective()给transform</li>
+</ul>
+</li>
+<li>转换方式 transform-style<ul>
+<li><code>transform-style:preserve-3d;</code>必须写在父级元素<h2 id="过渡-transition"><a href="#过渡-transition" class="headerlink" title="过渡 transition"></a>过渡 transition</h2></li>
+</ul>
+</li>
+<li>过渡属性 transition-property</li>
+<li>过渡持续时间 transition-duration</li>
+<li>过渡延迟 transition-delay</li>
+<li>过渡时间函数 transition-timing-function<h2 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画 animation"></a>动画 animation</h2>-定义动画<ul>
+<li>@keyframes 动画名｛from{} to{}｝</li>
+<li>使用动画<ul>
+<li>动画名称 animation-name</li>
+<li>动画持续时间 animation-duration</li>
+<li>动画延迟 animation-delay</li>
+<li>动画时间函数 animation-timing-function </li>
+<li>动画循环次数 animation-interation-count （infinite无限次循环）（steps(步数)分几步完成）</li>
+<li>动画方向  animation-direction<ul>
+<li>normal 正常播放</li>
+<li>alternate 动画应该轮流反向播放</li>
+</ul>
+</li>
+<li>动画播放状态  animation-play-state<ul>
+<li>paused 动画停止</li>
+<li>running 动画播放</li>
+</ul>
+</li>
+<li>动画执行后的状态  animation-fill-model<ul>
+<li>forwards 保持最后完成的状态</li>
+<li>backwards 回到初识状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Animation:动画名称 动画时间 动画延时 其他任选</li>
+</ul>
+</li>
+</ul>
+<p><strong><a href="http://caniuse.com/" target="_blank" rel="external">http://caniuse.com/</a> 查看哪些css3属性需要加前缀</strong>  </p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/20/Css3_动画/" class="archive-article-date">
+  	<time datetime="2015-12-20T11:21:46.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-伸缩布局和盒子尺寸md" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/12/伸缩布局和盒子尺寸md/">伸缩布局及盒子尺寸</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="盒子尺寸box-sizing"><a href="#盒子尺寸box-sizing" class="headerlink" title="盒子尺寸box-sizing"></a>盒子尺寸box-sizing</h2><ul>
+<li>box-sizing:content-box(默认值)<ul>
+<li>盒子总宽度=width+padding+border</li>
+</ul>
+</li>
+<li>box-sizing:border-box<ul>
+<li>让盒子的总宽度等于设置的width<h2 id="Flex布局（伸缩布局）"><a href="#Flex布局（伸缩布局）" class="headerlink" title="Flex布局（伸缩布局）"></a>Flex布局（伸缩布局）</h2></li>
+</ul>
+</li>
+<li>伸缩容器display:flex<ul>
+<li>伸缩容器属性<ul>
+<li>flex-direction 调整主轴的方向（默认是水平方向）四个值可选：<ul>
+<li>row (水平方向左到右)</li>
+<li>column (竖直方向上到下)</li>
+<li>row-reverse (水平反向)</li>
+<li>column-reverse (竖直反向)</li>
+</ul>
+</li>
+<li>flex-wrap 调整伸缩项目是否换行 两个值可选 ：nowrap(不换行默认)，wrap(换行)</li>
+<li>align-items 调整伸缩项目在侧轴的对齐方式 四个值可选：<ul>
+<li>flex-start 侧轴起始点对齐</li>
+<li>flex-end   侧轴终点对齐</li>
+<li>center     侧轴居中对齐</li>
+<li>stretch    伸缩对齐（默认）</li>
+</ul>
+</li>
+<li>align-content 调整换行后伸缩项目的对齐方式 六个值可选：<ul>
+<li>flex-start</li>
+<li>flex-end</li>
+<li>center</li>
+<li>space-around 四周环绕</li>
+<li>space-between 两端对齐</li>
+<li>stretch 拉伸 </li>
+</ul>
+</li>
+<li>justify-content 调整伸缩项目在主轴方向上的对齐方式，五个值可选：<ul>
+<li>flex-start 主轴起始点对齐</li>
+<li>flex-end 主轴终点对齐</li>
+<li>center 居中对齐</li>
+<li>space-around 四周环绕</li>
+<li>space-between 两端对齐 </li>
+</ul>
+</li>
+<li>flex-flow 是flex-direction和flex-wrap的简写形式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>伸缩项目<ul>
+<li>伸缩项目属性<ul>
+<li>flex 代表伸缩项目在伸缩容器中所占的剩余位置的比例</li>
+<li>align-self 设置自己的对齐方式 会覆盖父元素设置的侧轴对齐方式</li>
+<li>order  设置伸缩项目的排序方式 数字越大越靠后，越小越靠前</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/12/伸缩布局和盒子尺寸md/" class="archive-article-date">
+  	<time datetime="2015-12-12T12:30:13.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-12</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Css3_阴影及颜色表示发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/10/Css3_阴影及颜色表示发/">阴影属性及颜色表示法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h2><ul>
+<li>文本阴影<ul>
+<li>text-shadow:水平偏移 竖直偏移 模糊程度 阴影的颜色</li>
+<li>水平偏移：值越大，越往右，值越小，越往左</li>
+<li>竖直偏移：值越大，越往下，值越小，越往上</li>
+<li>模糊：模糊不能为负值，值越大，越模糊</li>
+<li>阴影颜色：为你想要的颜色</li>
+<li><code>text-shadow:10px 10px 0px #00ff000</code></li>
+</ul>
+</li>
+<li>盒子阴影<ul>
+<li>box-shadow:水平偏移 竖直偏移 模糊程度 模糊的扩展距离 阴影颜色 内嵌</li>
+<li>模糊的扩展距离：从元素边开始到开始模糊的地方，值越大扩展的距离越大</li>
+<li>内嵌：让阴影变成内嵌的阴影，称之内阴影，不写默认是外阴影</li>
+<li><code>box-shadow:10px 10px 1px 10px #ccc inset</code> <h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2></li>
+</ul>
+</li>
+<li>边框圆角<ul>
+<li>border-radius</li>
+<li>值有四种情况<ul>
+<li>一个值，代表四个角的圆角值都一样<code>border-radius:10px</code></li>
+<li>两个值，代表对角线的两个角的值（左上/右下 右上/左下）<code>border-radius:10px 20px</code></li>
+<li>三个值，代表左上，右下，右上/左下 <code>border-radius:10px 20px 30px</code></li>
+<li>四个值，代表顺时针各个角<code>border-radius:10px 20px 30px 40px</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="颜色表示方式"><a href="#颜色表示方式" class="headerlink" title="颜色表示方式"></a>颜色表示方式</h2><ul>
+<li>rgba()<ul>
+<li>r:red</li>
+<li>g:green</li>
+<li>b:blue</li>
+<li>a:alpha 不透明度（0-1）</li>
+<li><code>background-color:rgba(125,125,125,0.5)</code>     </li>
+</ul>
+</li>
+<li>hsla()<ul>
+<li>h:色调</li>
+<li>s:饱和度</li>
+<li>l:亮度或明度</li>
+<li>a:alpha不透明度(0-1) </li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2015/12/10/Css3_阴影及颜色表示发/" class="archive-article-date">
+  	<time datetime="2015-12-10T02:25:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2015-12-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/">Css3</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Css02_background" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -466,10 +799,39 @@ less than equal to 小于等于
 <li><p><code>oninput</code>       当用户输入时，触发</p>
 </li>
 <li><p><code>oninput</code>与<code>onchange</code>的区别</p>
-<p>  1.oninput在用户一输入时就触发，onchange是用户输入后，并且该表单元素失去焦点时才触发。<br>  2.oninput只能作用于input和textarea;onchange可以作用于input，textarea和select等<br>  3.oninput的兼容性没有onchange好。</p>
+<ol>
+<li>oninput在用户一输入时就触发，onchange是用户输入后，并且该表单元素失去焦点时才触发。</li>
+<li>oninput只能作用于input和textarea;onchange可以作用于input，textarea和select等</li>
+<li>oninput的兼容性没有onchange好。<h2 id="视频音频"><a href="#视频音频" class="headerlink" title="视频音频"></a>视频音频</h2><h3 id="视频-video"><a href="#视频-video" class="headerlink" title="视频 video"></a>视频 video</h3></li>
+</ol>
 </li>
 </ul>
 </li>
+<li>用法：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;video src="movie.ogg" controls="controls"&gt;</div><div class="line">您的浏览器不支持 video 标签。</div><div class="line">&lt;/video&gt;</div><div class="line">&lt;video controls loop&gt;</div><div class="line">	&lt;source src="movies/ZachKing.webm" type="video/webm"&gt;&lt;/source&gt;</div><div class="line">	&lt;source src="movies/movie.mp4" type="video/mp4"&gt;&lt;/source&gt;</div><div class="line">	您的浏览器不支持HTML视频播放功能</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>提示：可以在开始标签和结束标签之间放置文本内容，这样老的浏览器就可以显示出不支持该标签的信息。</p>
+</blockquote>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>autoplay     <strong>autoplay</strong>    如果出现该属性，则视频在就绪后马上播放。</li>
+<li>controls    **controls    如果出现该属性，则向用户显示控件，比如播放按钮。</li>
+<li>height    **pixels    设置视频播放器的高度。</li>
+<li>loop    <strong>loop</strong>    如果出现该属性，则当媒介文件完成播放后再次开始播放。</li>
+<li>muted    <strong>muted</strong>    规定视频的音频输出应该被静音。</li>
+<li>poster    <strong>URL</strong>    规定视频下载时显示的图像，或者在用户点击播放按钮前显示的图像。</li>
+<li>preload    <strong>preload</strong>    如果出现该属性，则视频在页面加载时进行加载，并预备播放。如果使用 “autoplay”，则忽略该属性。</li>
+<li>src    <strong>url</strong>    要播放的视频的 URL。</li>
+<li>width    <strong>pixels</strong>    设置视频播放器的宽度。<h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;audio controls=<span class="string">"controls"</span>&gt;</div><div class="line">  &lt;source src="song.ogg" type="audio/ogg"&gt;</div><div class="line">  &lt;source src="song.mp3" type="audio/mpeg"&gt;</div><div class="line">	Your browser does not support the audio tag.</div><div class="line">&lt;/audio&gt;</div><div class="line">&lt;audio src="song.ogg" controls="controls"&gt;</div><div class="line">&lt;/audio&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>属性    值    描述</li>
+<li>autoplay    autoplay    如果出现该属性，则音频在就绪后马上播放。</li>
+<li>controls    controls    如果出现该属性，则向用户显示控件，比如播放按钮。</li>
+<li>loop    loop    如果出现该属性，则每当音频结束时重新开始播放。</li>
+<li>preload    preload    如果出现该属性，则音频在页面加载时进行加载，并预备播放。如果使用 “autoplay”，则忽略该属性。</li>
+<li>src    url    要播放的音频的 URL。</li>
 </ul>
 
       
@@ -1316,7 +1678,7 @@ getElementById()    //通过元素Id，唯一性
     
     	<section class="tools-section tools-section-me">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">不为无益之事</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">不为无益之事,何以遣有涯之生。联系方式：17601685071</div>
   	  	
     	</section>
     
